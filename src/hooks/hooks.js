@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
 import { teams } from "../data/teams.json"
 
-export function useFilteredTeam(selectedTeam) {
-  const [currSelectedTeam, setCurrSelectedTeam] = useState(selectedTeam)
-  let team
+export function useFilteredTeam(selectedTeamId = 1) {
+  const [currTeamId, setCurrTeamId] = useState(selectedTeamId)
+  const [foundTeam, setFoundTeam] = useState([teams.filter(({ id }) => id === selectedTeamId)[0]])
   
   useEffect(() => {
-    if(currSelectedTeam === selectedTeam) return
-    team = [teams.filter(({ id }) => id === selectedTeam)[0]];
-    setCurrSelectedTeam(selectedTeam)
-  }, [selectedTeam])
-  if (team !== undefined) return team
+    if(currTeamId === selectedTeamId) return
+    let team = [teams.filter(({ id }) => id === selectedTeamId)[0]];
+    setFoundTeam(team)
+    setCurrTeamId(selectedTeamId)
+  }, [selectedTeamId])
+
+  return foundTeam
   }

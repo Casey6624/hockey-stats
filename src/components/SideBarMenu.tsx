@@ -7,6 +7,7 @@ const AppContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  flex: 1 1;
 `;
 
 interface Props {
@@ -17,7 +18,7 @@ interface Props {
 const SideBarMenu: React.FC<Props> = ({ teams, setSelectedTeam }) => {
   return (
     <AppContainer>
-      <h1>Hockey App</h1>
+      <h1>Choose Team</h1>
       {teams.map(({ id, name }) => (
         <p key={id} onClick={() => setSelectedTeam(id)}>
           {name}
