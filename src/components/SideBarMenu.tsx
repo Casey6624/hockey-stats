@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+// helpers
+import { useFilteredTeam } from "../hooks/hooks"
 
 const AppContainer = styled.div`
   width: 100%;
@@ -8,7 +10,7 @@ const AppContainer = styled.div`
 `;
 
 interface Props {
-  teams: Object;
+  teams: Array<any>;
   setSelectedTeam: Function;
 }
 
@@ -21,10 +23,6 @@ const SideBarMenu: React.FC<Props> = ({ teams, setSelectedTeam }) => {
           {name}
         </p>
       ))}
-
-      <div>
-        <h1>Chosen Team: {findFilteredTeam().name}</h1>
-      </div>
     </AppContainer>
   );
 };

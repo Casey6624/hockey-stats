@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { teams } from "./data/teams.json";
+// helpeers
+import { useFilteredTeam } from "./hooks/hooks"
 // Components
 import SidebarMenu from "./components/SideBarMenu";
 
@@ -13,10 +15,11 @@ const AppContainer = styled.div`
 const App: React.FC = () => {
   const [selectedTeam, setSelectedTeam] = useState(1);
 
-  function findFilteredTeam() {
-    return teams.filter(({ id }) => id === selectedTeam)[0];
-  }
+  const filteredTeam = useFilteredTeam(selectedTeam)
 
+  if(filteredTeam){
+    console.log(filteredTeam)
+  }
   return (
     <AppContainer>
       <h1>Hockey App</h1>
@@ -24,7 +27,7 @@ const App: React.FC = () => {
       <SidebarMenu teams={teams} setSelectedTeam={setSelectedTeam} />
 
       <div>
-        <h1>Chosen Team: {findFilteredTeam().name}</h1>
+        <h1>Chosen Team: </h1>
       </div>
     </AppContainer>
   );
