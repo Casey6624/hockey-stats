@@ -34,7 +34,7 @@ const App: React.FC = () => {
 
       <SidebarMenu teams={teams} setSelectedTeam={setSelectedTeam} />
       <MainBody>
-        <TeamBlurb />
+        <TeamBlurb team={filteredTeam[0]}/>
       </MainBody>
       </FlexWrapper>
     </AppContainer>

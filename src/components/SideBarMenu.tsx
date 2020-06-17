@@ -8,6 +8,8 @@ const AppContainer = styled.div`
   margin: 0 auto;
   text-align: center;
   flex: 1 1;
+  overflow-y:scroll;
+  max-height: 90vh;
 `;
 
 interface Props {
