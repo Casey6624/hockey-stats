@@ -1,17 +1,7 @@
 import React, { useEffect, useState, ReactNode } from "react";
 import styled, { keyframes } from "styled-components";
-
-const fadeIn = keyframes`
-  from {
-    transform: scale(0.25);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-`;
+// Hooks
+import { useBackgroundAnimation } from "../hooks/hooks";
 
 const MainBodyContainer = styled.div`
   width: 100%;
@@ -21,7 +11,6 @@ const MainBodyContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-color: red;
-  animation: ${fadeIn} 1s forwards;
   background-blend-mode: luminosity;
   background-image: url("${process.env.PUBLIC_URL}/img/${(p: Props) =>
   p.imgBackground}");
