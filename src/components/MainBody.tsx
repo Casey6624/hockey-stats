@@ -5,19 +5,20 @@ const MainBodyContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   flex: 4 1;
-  background: darkgrey;
+background-image: url("${process.env.PUBLIC_URL}/img/${(p: Props) =>
+  p.imgBackground}");
 `;
-
 interface Props {
-    children: {
-        TeamBlurb?: ReactNode
-    }
+  children: {
+    TeamBlurb?: ReactNode;
+  };
+  imgBackground: string;
 }
 
-const MainBody: React.FC<Props> = ( props ) => {
+const MainBody: React.FC<Props> = ({ imgBackground, children }) => {
   return (
-    <MainBodyContainer>
-        {props.children}
+    <MainBodyContainer imgBackground={imgBackground}>
+      {children}
     </MainBodyContainer>
   );
 };
