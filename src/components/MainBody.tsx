@@ -5,7 +5,11 @@ const MainBodyContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   flex: 4 1;
-background-image: url("${process.env.PUBLIC_URL}/img/${(p: Props) =>
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: red;
+  background-blend-mode: luminosity;
+  background-image: url("${process.env.PUBLIC_URL}/img/${(p: Props) =>
   p.imgBackground}");
 `;
 interface Props {
