@@ -4,7 +4,9 @@ import styled from "styled-components";
 import { SpaceAroundFlex } from "../styling/common";
 
 const TeamName = styled.h3`
-  font-size: 2rem;
+  font-size: 4rem;
+  font-family: "Great Vibes", cursive;
+  color: #f2f2f2;
 `;
 
 const TeamDivision = styled.h3`

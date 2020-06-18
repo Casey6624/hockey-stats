@@ -12,6 +12,8 @@ const AppContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  margin: 0;
+  padding: 0;
 `;
 
 const FlexWrapper = styled.div`
@@ -29,7 +31,6 @@ const App: React.FC = () => {
   }
   return (
     <AppContainer>
-      <h1>NHL Stats</h1>
       <FlexWrapper>
         <SidebarMenu teams={teams} setSelectedTeam={setSelectedTeam} />
         <MainBody imgBackground={`${filteredTeam[0].abbreviation}.jpg`}>

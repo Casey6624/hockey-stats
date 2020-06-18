@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-// helpers
-import { useFilteredTeam } from "../hooks/hooks";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -9,7 +7,30 @@ const AppContainer = styled.div`
   text-align: center;
   flex: 1 1;
   overflow-y: scroll;
-  max-height: 90vh;
+  max-height: 100vh;
+  background: #121212;
+`;
+
+const ChooseTeam = styled.h1`
+  font-family: "Staatliches", cursive;
+`;
+
+const TeamList = styled.ul`
+  width: 100%;
+  margin: 0;
+`;
+
+const TeamItem = styled.li`
+  list-style: none;
+  text-align: left;
+  font-family: "Staatliches", cursive;
+  h4 {
+    font-size: 1.5rem;
+  }
+  &:hover {
+    background: red;
+  }
+  color: #f2f2f2;
 `;
 
 interface Props {
@@ -20,12 +41,14 @@ interface Props {
 const SideBarMenu: React.FC<Props> = ({ teams, setSelectedTeam }) => {
   return (
     <AppContainer>
-      <h1>Choose Team</h1>
-      {teams.map(({ id, name }) => (
-        <div key={id} onClick={() => setSelectedTeam(id)}>
-          <p>{name}</p>
-        </div>
-      ))}
+      <ChooseTeam>Team Select</ChooseTeam>
+      <TeamList>
+        {teams.map(({ id, name }) => (
+          <TeamItem key={id} onClick={() => setSelectedTeam(id)}>
+            <h4>{name}</h4>
+          </TeamItem>
+        ))}
+      </TeamList>
     </AppContainer>
   );
 };
