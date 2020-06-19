@@ -17,31 +17,3 @@ export function useFilteredTeam(selectedTeamId = 1) {
 
   return foundTeam;
 }
-
-export function useBackgroundAnimation(changedOrInitialBG) {
-  const [activeBackground, setActiveBackground] = useState(changedOrInitialBG);
-  const [transition, setTransition] = useState(
-    `${fadeIn} 0.5s ease-in-out 0s forwards 1`
-  );
-
-  const fadeIn = keyframes`
-  from {
-    opacity: 0.2;
-  }
-
-  to {
-    opacity: 1;
-  }
-`;
-
-  useEffect(() => {
-    if (activeBackground != changedOrInitialBG)
-      setActiveBackground(changedOrInitialBG);
-    setTransition(`${fadeIn} 0.5s ease-in-out 0s forwards 1`);
-    setTimeout(() => {
-      setTransition("");
-    }, 2000);
-  }, [changedOrInitialBG]);
-
-  return transition;
-}
