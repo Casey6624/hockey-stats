@@ -26,9 +26,6 @@ const App: React.FC = () => {
 
   const filteredTeam = useFilteredTeam(selectedTeam);
 
-  if (filteredTeam) {
-    console.log(filteredTeam);
-  }
   return (
     <AppContainer>
       <FlexWrapper>

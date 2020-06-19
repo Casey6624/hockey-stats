@@ -1,5 +1,7 @@
 import React, { useEffect, useState, ReactNode } from "react";
 import styled, { keyframes } from "styled-components";
+// Hooks
+import { useTeamColour } from "../hooks/hooks";
 
 const fadeIn = keyframes`
 from {
@@ -19,7 +21,7 @@ const MainBodyContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   animation: ${fadeIn} 0.5s ease-in-out 0s forwards 1;
-  background-color: red;
+  background-color: {p: Props => p.teamColour};
   background-blend-mode: luminosity;
   background-image: url("${process.env.PUBLIC_URL}/img/${(p: Props) =>
   p.imgBackground}");
@@ -29,15 +31,17 @@ interface Props {
     TeamBlurb?: ReactNode;
   };
   imgBackground: string;
-}
-
-function tintTeamBackground(imgFileName: string) {
-  console.log(imgFileName);
+  teamColour?: string;
 }
 
 const MainBody: React.FC<Props> = ({ imgBackground, children }) => {
+  let colour = useTeamColour(imgBackground);
   return (
-    <MainBodyContainer key={imgBackground} imgBackground={imgBackground}>
+    <MainBodyContainer
+      key={imgBackground}
+      imgBackground={imgBackground}
+      teamColour={colour}
+    >
       {children}
     </MainBodyContainer>
   );

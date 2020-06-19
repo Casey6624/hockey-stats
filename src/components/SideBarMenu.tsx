@@ -29,6 +29,7 @@ const TeamItem = styled.li`
   }
   &:hover {
     background: red;
+    cursor: pointer;
   }
   color: #f2f2f2;
 `;
