@@ -1,14 +1,19 @@
 import React, { ReactElement } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 // shared styling
 import { SpaceAroundFlex } from "../styling/common";
 import TeamLogo from "./TeamLogo";
 
-const TeamName = styled.h3`
+const TeamName = styled.div`
   font-size: 4rem;
   font-family: "Great Vibes", cursive;
   color: #f2f2f2;
-  padding: 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  position: relative;
+  z-index: 2;
+  transform: skew(-25deg);
+  width: fit-content;
+  background: #121212;
 `;
 
 const TeamDivision = styled.h3`
@@ -24,13 +29,11 @@ const TeamVenue = styled.h2`
 `;
 
 interface Props {
+  teamColour?: string;
   team: any;
-  teamColour: string;
 }
 
 const TeamBlurb: React.FC<Props> = ({ team, teamColour }) => {
-  //let logo = TEAM_LOGOS[`${team.abbreviation}`];
-
   return (
     <>
       <SpaceAroundFlex>
