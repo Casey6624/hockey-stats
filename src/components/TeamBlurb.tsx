@@ -29,9 +29,7 @@ const LeftSidePanel = styled.div<LeftPanelProps>`
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 `;
 
-const RightSidePanel = styled.div`
-  background: #121212;
-`;
+const RightSidePanel = styled.div``;
 
 const TeamDivision = styled.h3`
   font-size: 2rem;
