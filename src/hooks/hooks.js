@@ -84,3 +84,35 @@ export function useTeamColour(imgFile = "NJD.jpg") {
 
   return foundColour(teamsDividedByColour);
 }
+
+export const useHttp = (url, dependencies) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [fetchedData, setFetchedData] = useState(null);
+
+  //   fetch('https://swapi.co/api/people')
+  useEffect(() => {
+    setIsLoading(true);
+    console.log("Sending Http request to URL: " + url);
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch.");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setIsLoading(false);
+        setFetchedData(data);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
+  }, dependencies);
+
+  return [isLoading, fetchedData];
+};
+
+export function usePlayerImage() {
+  // https://nhl.bamcontent.com/images/headshots/current/168x168/8476459.jpg
+}

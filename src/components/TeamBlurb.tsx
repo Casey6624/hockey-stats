@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 // styling
 import { SideBySideFlex } from "../styling/common";
+import { useHttp } from "../hooks/hooks";
 
 interface Props {
   teamColour: string;
@@ -22,6 +23,7 @@ const BlurbContainer = styled.div`
 const LeftSidePanel = styled.div<LeftPanelProps>`
   background: ${(p) => p.teamColour};
   padding: 1rem;
+  text-align: right;
   border-radius: 0 12px 12px 0;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 `;
@@ -50,16 +52,36 @@ const TeamVenue = styled.h2`
 `;
 
 const TeamBlurb: React.FC<Props> = ({ team, teamColour }) => {
-  console.log(team, teamColour);
+  const [playerData, setPlayerData] = useState(null);
+
+  const [isLoading, data] = useHttp(
+    `https://statsapi.web.nhl.com/api/v1/teams/${team.id}/roster`,
+    team.id
+  );
+
   if (!team || !teamColour) return <div>Loading...</div>;
+
+  if (data) {
+    console.log(data);
+  }
   return (
     <>
       <BlurbContainer>
         <LeftSidePanel teamColour={teamColour}>
           <TeamConference> {team.conference.name} Conference </TeamConference>
-          <TeamDivision>{team.division.name} Division</TeamDivision>
+          <TeamDivision>
+            <span role="img" aria-label="Stadium Image">
+              🏒
+            </span>
+            {team.division.name} Division
+          </TeamDivision>
 
-          <TeamVenue> 🏟️ {team.venue.name}</TeamVenue>
+          <TeamVenue>
+            <span role="img" aria-label="Stadium Image">
+              🏟️
+            </span>
+            {team.venue.name}
+          </TeamVenue>
         </LeftSidePanel>
         <RightSidePanel>
           <h2>Woooo see players! wooo</h2>

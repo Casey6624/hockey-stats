@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Hockey Stats",
+  "name": "Stay up to date with the latest hockey news and stats.",
   "icons": [
     {
       "src": "favicon.ico",
