@@ -41,6 +41,7 @@ const ChooseTeam = styled.div`
 
   h3 {
     margin: 0.5rem;
+    font-size: 1.25rem;
   }
 `;
 

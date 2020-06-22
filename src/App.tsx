@@ -6,6 +6,7 @@ import { useFilteredTeam, useTeamColour } from "./hooks/hooks";
 // Components
 import SidebarMenu from "./components/SideBarMenu";
 import MainBody from "./components/MainBody";
+import TeamHeader from "./components/TeamHeader";
 import TeamBlurb from "./components/TeamBlurb";
 
 const AppContainer = styled.div`
@@ -39,6 +40,7 @@ const App: React.FC = () => {
           teamAbbreivation={filteredTeam[0].abbreviation}
           teamColour={colour}
         >
+          <TeamHeader team={filteredTeam[0]} teamColour={colour} />
           <TeamBlurb team={filteredTeam[0]} teamColour={colour} />
         </MainBody>
       </FlexWrapper>
