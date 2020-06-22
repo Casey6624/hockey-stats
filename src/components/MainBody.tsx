@@ -21,7 +21,7 @@ const MainBodyContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   animation: ${fadeIn} 0.5s ease-in-out 0s forwards 1;
-  background-color: {p: Props => p.teamColour};
+  background-color: ${(props) => props.teamColour};
   background-blend-mode: luminosity;
   background-image: url("${process.env.PUBLIC_URL}/img/${(p: Props) =>
   p.imgBackground}");

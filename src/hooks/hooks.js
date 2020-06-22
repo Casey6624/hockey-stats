@@ -18,6 +18,14 @@ export function useFilteredTeam(selectedTeamId = 1) {
   return foundTeam;
 }
 export function useTeamColour(imgFile = "NJD.jpg") {
+  const RED_COLOUR = "#a6192e";
+  const YELLOW_COLOUR = "#FFB915";
+  const GREEN_COLOUR = "#006847";
+  const BLACKW_COLOUR = "black";
+  const ORANGE_COLOUR = "#fa4616";
+  const TEAL_COLOUR = "#006D75";
+  const BLUE_COLOUR = "#0038A8";
+
   imgFile = imgFile.split(".")[0];
 
   const teamsDividedByColour = {};
@@ -56,7 +64,7 @@ export function useTeamColour(imgFile = "NJD.jpg") {
     "NYR",
   ];
 
-  const colour = function foundColour({
+  function foundColour({
     redTeams,
     ylwGoldTeams,
     greenTeams,
@@ -65,16 +73,16 @@ export function useTeamColour(imgFile = "NJD.jpg") {
     tealTeams,
     blueTeams,
   }) {
-    const red = redTeams.includes(imgFile) ? "red" : "";
-    const yellow = ylwGoldTeams.includes(imgFile) ? "yellow" : "";
-    const green = greenTeams.includes(imgFile) ? "green" : "";
-    const black = blackWhiteTeams.includes(imgFile) ? "black" : "";
-    const orange = orangeTeams.includes(imgFile) ? "orange" : "";
-    const teal = tealTeams.includes(imgFile) ? "teal" : "";
-    const blue = blueTeams.includes(imgFile) ? "blue" : "";
+    const red = redTeams.includes(imgFile) ? RED_COLOUR : "";
+    const yellow = ylwGoldTeams.includes(imgFile) ? YELLOW_COLOUR : "";
+    const green = greenTeams.includes(imgFile) ? GREEN_COLOUR : "";
+    const black = blackWhiteTeams.includes(imgFile) ? BLACKW_COLOUR : "";
+    const orange = orangeTeams.includes(imgFile) ? ORANGE_COLOUR : "";
+    const teal = tealTeams.includes(imgFile) ? TEAL_COLOUR : "";
+    const blue = blueTeams.includes(imgFile) ? BLUE_COLOUR : "";
 
     return `${red + yellow + green + black + orange + teal + blue}`;
-  };
+  }
 
-  return colour;
+  return foundColour(teamsDividedByColour);
 }
