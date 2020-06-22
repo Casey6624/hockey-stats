@@ -34,11 +34,14 @@ const CardContainer = styled.div`
   padding: 0 0.5rem 0 0.5rem;
   margin: 0.5rem;
   z-index: 10;
+  flex: 1 1 0px;
+  flex-basis: 0;
 `;
 
 const PlayerImage = styled.img`
   border-radius: 50%;
   width: 80%;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 `;
 
 const PositionType = styled.h3`
@@ -61,7 +64,7 @@ const Position = styled.h3<TeamColourItem>`
 `;
 
 const CardHeader = styled.div<TeamColourItem>`
-  width: 160px;
+  width: 168px;
   height: 150px;
   margin: -0.5rem;
   transform: skew(20deg);
