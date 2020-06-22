@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import TeamLogos from "../svg/TEAM_LOGOS";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -12,8 +13,16 @@ const AppContainer = styled.div`
   width: fit-content;
 `;
 
-const ChooseTeam = styled.h1`
+const ChooseTeam = styled.div`
   font-family: "Staatliches", cursive;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: whitesmoke;
+
+  h3 {
+    margin: 0.5rem;
+  }
 `;
 
 const TeamList = styled.ul`
@@ -59,7 +68,9 @@ const SideBarMenu: React.FC<Props> = ({
 }) => {
   return (
     <AppContainer>
-      <ChooseTeam>Team Select</ChooseTeam>
+      <ChooseTeam>
+        {TeamLogos.NHL} <h3>Team Select</h3>
+      </ChooseTeam>
       <TeamList>
         {teams.map(({ id, name }) => (
           <TeamItem

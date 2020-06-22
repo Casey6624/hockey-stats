@@ -40,6 +40,7 @@ const TeamBlurb: React.FC<Props> = ({ team, teamColour }) => {
         <TeamName>{team.name}</TeamName>
         <TeamLogo teamAbbr={team.abbreviation} />
       </SpaceAroundFlex>
+
       <TeamDivision>{team.division.name}</TeamDivision>
       <TeamVenue>{team.venue.name}</TeamVenue>
       <TeamConference>{team.conference.name}</TeamConference>
