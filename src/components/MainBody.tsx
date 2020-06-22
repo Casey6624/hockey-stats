@@ -1,7 +1,7 @@
 import React, { useEffect, useState, ReactNode } from "react";
 import styled, { keyframes } from "styled-components";
 // Hooks
-import { useTeamColour } from "../hooks/hooks";
+import TEAM_LOGOS from "../svg/TEAM_LOGOS";
 
 const fadeIn = keyframes`
 from {
@@ -34,15 +34,19 @@ interface Props {
   teamColour?: string;
 }
 
-const MainBody: React.FC<Props> = ({ teamAbbreivation, children }) => {
-  let colour = useTeamColour(teamAbbreivation);
+const MainBody: React.FC<Props> = ({
+  teamAbbreivation,
+  children,
+  teamColour,
+}) => {
   return (
     <MainBodyContainer
       key={teamAbbreivation}
       teamAbbreivation={teamAbbreivation}
-      teamColour={colour}
+      teamColour={teamColour}
     >
       {children}
+      {TEAM_LOGOS.CAR}
     </MainBodyContainer>
   );
 };

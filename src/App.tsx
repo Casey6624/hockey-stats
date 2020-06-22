@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { teams } from "./data/teams.json";
 // helpeers
-import { useFilteredTeam } from "./hooks/hooks";
+import { useFilteredTeam, useTeamColour } from "./hooks/hooks";
 // Components
 import SidebarMenu from "./components/SideBarMenu";
 import MainBody from "./components/MainBody";
@@ -23,15 +23,18 @@ const FlexWrapper = styled.div`
 
 const App: React.FC = () => {
   const [selectedTeam, setSelectedTeam] = useState(1);
-
   const filteredTeam = useFilteredTeam(selectedTeam);
+  let colour = useTeamColour(filteredTeam[0].abbreviation);
 
   return (
     <AppContainer>
       <FlexWrapper>
         <SidebarMenu teams={teams} setSelectedTeam={setSelectedTeam} />
-        <MainBody teamAbbreivation={filteredTeam[0].abbreviation}>
-          <TeamBlurb team={filteredTeam[0]} />
+        <MainBody
+          teamAbbreivation={filteredTeam[0].abbreviation}
+          teamColour={colour}
+        >
+          <TeamBlurb team={filteredTeam[0]} teamColour={colour} />
         </MainBody>
       </FlexWrapper>
     </AppContainer>
