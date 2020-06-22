@@ -29,7 +29,12 @@ const App: React.FC = () => {
   return (
     <AppContainer>
       <FlexWrapper>
-        <SidebarMenu teams={teams} setSelectedTeam={setSelectedTeam} />
+        <SidebarMenu
+          teams={teams}
+          setSelectedTeam={setSelectedTeam}
+          teamColour={colour}
+          selectedTeam={selectedTeam}
+        />
         <MainBody
           teamAbbreivation={filteredTeam[0].abbreviation}
           teamColour={colour}
