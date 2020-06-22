@@ -24,22 +24,22 @@ const MainBodyContainer = styled.div`
   background-color: ${(props) => props.teamColour};
   background-blend-mode: luminosity;
   background-image: url("${process.env.PUBLIC_URL}/img/${(p: Props) =>
-  p.imgBackground}");
+  p.teamAbbreivation}.jpg");
 `;
 interface Props {
   children: {
     TeamBlurb?: ReactNode;
   };
-  imgBackground: string;
+  teamAbbreivation: string;
   teamColour?: string;
 }
 
-const MainBody: React.FC<Props> = ({ imgBackground, children }) => {
-  let colour = useTeamColour(imgBackground);
+const MainBody: React.FC<Props> = ({ teamAbbreivation, children }) => {
+  let colour = useTeamColour(teamAbbreivation);
   return (
     <MainBodyContainer
-      key={imgBackground}
-      imgBackground={imgBackground}
+      key={teamAbbreivation}
+      teamAbbreivation={teamAbbreivation}
       teamColour={colour}
     >
       {children}

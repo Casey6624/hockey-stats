@@ -26,8 +26,6 @@ export function useTeamColour(imgFile = "NJD.jpg") {
   const TEAL_COLOUR = "#006D75";
   const BLUE_COLOUR = "#0038A8";
 
-  imgFile = imgFile.split(".")[0];
-
   const teamsDividedByColour = {};
   teamsDividedByColour.redTeams = [
     "CAR",

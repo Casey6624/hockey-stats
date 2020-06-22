@@ -30,7 +30,7 @@ const App: React.FC = () => {
     <AppContainer>
       <FlexWrapper>
         <SidebarMenu teams={teams} setSelectedTeam={setSelectedTeam} />
-        <MainBody imgBackground={`${filteredTeam[0].abbreviation}.jpg`}>
+        <MainBody teamAbbreivation={filteredTeam[0].abbreviation}>
           <TeamBlurb team={filteredTeam[0]} />
         </MainBody>
       </FlexWrapper>
