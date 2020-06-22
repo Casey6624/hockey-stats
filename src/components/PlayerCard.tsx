@@ -20,8 +20,13 @@ export interface Player {
   };
 }
 
+interface TeamColourItem {
+  teamColour: string;
+}
+
 interface Props {
   player: Player;
+  teamColour: string;
 }
 
 const CardContainer = styled.div`
@@ -36,23 +41,48 @@ const PlayerImage = styled.img`
   width: 80%;
 `;
 
-const PositionAndType = styled.h3`
+const PositionType = styled.h3`
   font-size: 1.5rem;
   font-family: "Staatliches", cursive;
   color: #f2f2f2;
 `;
 
-const CardHeader = styled.div`
-  width: 150px;
+const Position = styled.h3<TeamColourItem>`
+  font-size: 1.5rem;
+  font-family: "Staatliches", cursive;
+  color: #f2f2f2;
+  padding: 0.25rem;
+  background: ${(props) => props.teamColour};
+  position: relative;
+  z-index: 2;
+  transform: skew(-15deg);
+  width: fit-content;
+  color: #f2f2f2;
+`;
+
+const CardHeader = styled.div<TeamColourItem>`
+  width: 160px;
   height: 150px;
   margin: -0.5rem;
   transform: skew(20deg);
-  background: red;
+  background: ${(props) => props.teamColour};
   z-index: -1;
   position: absolute;
 `;
 
-const PlayerCard: React.FC<Props> = ({ player }) => {
+const PlayerName = styled.h3`
+  font-family: "Josefin Slab", serif;
+  color: #f2f2f2;
+  font-size: 2rem;
+`;
+
+const HeightAndWeight = styled.p`
+  font-family: "Josefin Slab", serif;
+  color: #f2f2f2;
+  font-size: 1rem;
+`;
+
+const PlayerCard: React.FC<Props> = ({ player, teamColour }) => {
   const image = usePlayerImage(player.person.id);
   console.log(image);
   if (!player) {
@@ -60,12 +90,14 @@ const PlayerCard: React.FC<Props> = ({ player }) => {
   }
   return (
     <CardContainer>
-      <CardHeader />
+      <CardHeader teamColour={teamColour} />
       <SideBySideFlex>
-        <PositionAndType>{player.position.code}</PositionAndType>
-        <PositionAndType>{player.position.type}</PositionAndType>
+        <Position teamColour={teamColour}>{player.position.code}</Position>
+        <PositionType>{player.position.type}</PositionType>
       </SideBySideFlex>
       <PlayerImage src={`${image}`} />
+      <PlayerName> {player.person.fullName} </PlayerName>
+      <HeightAndWeight># {player.jerseyNumber}</HeightAndWeight>
     </CardContainer>
   );
 };
