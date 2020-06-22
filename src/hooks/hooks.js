@@ -113,6 +113,9 @@ export const useHttp = (url, dependencies) => {
   return [isLoading, fetchedData];
 };
 
-export function usePlayerImage() {
-  // https://nhl.bamcontent.com/images/headshots/current/168x168/8476459.jpg
+export function usePlayerImage(playerId) {
+  if (!playerId) {
+    return "https://i.pinimg.com/originals/b1/d5/d0/b1d5d0d24e7d5a9088c4838fd762eb60.jpg";
+  }
+  return `https://nhl.bamcontent.com/images/headshots/current/168x168/${playerId}.jpg`;
 }

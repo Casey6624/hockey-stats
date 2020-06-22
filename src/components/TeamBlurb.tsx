@@ -3,6 +3,7 @@ import styled from "styled-components";
 // styling
 import { SideBySideFlex } from "../styling/common";
 import { useHttp } from "../hooks/hooks";
+import PlayerPanel from "./PlayerPanel";
 
 interface Props {
   teamColour: string;
@@ -52,8 +53,6 @@ const TeamVenue = styled.h2`
 `;
 
 const TeamBlurb: React.FC<Props> = ({ team, teamColour }) => {
-  const [playerData, setPlayerData] = useState(null);
-
   const [isLoading, data] = useHttp(
     `https://statsapi.web.nhl.com/api/v1/teams/${team.id}/roster`,
     team.id
@@ -61,9 +60,6 @@ const TeamBlurb: React.FC<Props> = ({ team, teamColour }) => {
 
   if (!team || !teamColour) return <div>Loading...</div>;
 
-  if (data) {
-    console.log(data);
-  }
   return (
     <>
       <BlurbContainer>
@@ -84,7 +80,7 @@ const TeamBlurb: React.FC<Props> = ({ team, teamColour }) => {
           </TeamVenue>
         </LeftSidePanel>
         <RightSidePanel>
-          <h2>Woooo see players! wooo</h2>
+          {!isLoading && data && <PlayerPanel rosterPlayers={data} />}
         </RightSidePanel>
       </BlurbContainer>
     </>
