@@ -1,9 +1,8 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styled from "styled-components";
 // shared styling
 import { SpaceAroundFlex } from "../styling/common";
-// hooks
-import { useTeamColour } from "../hooks/hooks";
+import TeamLogo from "./TeamLogo";
 
 const TeamName = styled.h3`
   font-size: 4rem;
@@ -30,13 +29,16 @@ interface Props {
 }
 
 const TeamBlurb: React.FC<Props> = ({ team, teamColour }) => {
+  //let logo = TEAM_LOGOS[`${team.abbreviation}`];
+
   return (
     <>
       <SpaceAroundFlex>
         <TeamName>{team.name}</TeamName>
-        <TeamVenue>{team.venue.name}</TeamVenue>
+        <TeamLogo teamAbbr={team.abbreviation} />
       </SpaceAroundFlex>
       <TeamDivision>{team.division.name}</TeamDivision>
+      <TeamVenue>{team.venue.name}</TeamVenue>
       <TeamConference>{team.conference.name}</TeamConference>
     </>
   );

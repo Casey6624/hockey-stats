@@ -4,6 +4,8 @@ const teamLogos = {};
 
 teamLogos.CAR = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-12-light"
@@ -34,6 +36,8 @@ teamLogos.CAR = (
 
 teamLogos.CBJ = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-29-light"
@@ -74,6 +78,8 @@ teamLogos.CBJ = (
 
 teamLogos.NJD = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-1-light"
@@ -99,6 +105,8 @@ teamLogos.NJD = (
 
 teamLogos.NYI = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-2-light"
@@ -129,6 +137,8 @@ teamLogos.NYI = (
 
 teamLogos.NYR = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-3-light"
@@ -147,6 +157,8 @@ teamLogos.NYR = (
 
 teamLogos.PHI = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-4-light"
@@ -176,6 +188,8 @@ teamLogos.PHI = (
 
 teamLogos.PIT = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-5-light"
@@ -201,6 +215,8 @@ teamLogos.PIT = (
 
 teamLogos.WSH = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-15-light"
@@ -226,6 +242,8 @@ teamLogos.WSH = (
 
 teamLogos.BOS = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-6-light"
@@ -263,6 +281,8 @@ teamLogos.BOS = (
 
 teamLogos.BUF = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-7-light"
@@ -301,6 +321,8 @@ teamLogos.BUF = (
 
 teamLogos.DET = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-17-light"
@@ -331,6 +353,8 @@ teamLogos.DET = (
 
 teamLogos.FLA = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-13-light"
@@ -372,6 +396,8 @@ teamLogos.FLA = (
 
 teamLogos.MTL = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-8-light"
@@ -401,6 +427,8 @@ teamLogos.MTL = (
 
 teamLogos.OTT = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-9-light"
@@ -434,6 +462,8 @@ teamLogos.OTT = (
 
 teamLogos.TBL = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-14-light"
@@ -448,6 +478,8 @@ teamLogos.TBL = (
 
 teamLogos.TOR = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-10-light"
@@ -469,6 +501,8 @@ teamLogos.TOR = (
 
 teamLogos.CHI = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-16-light"
@@ -526,6 +560,8 @@ teamLogos.CHI = (
 
 teamLogos.COL = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-21-light"
@@ -580,6 +616,8 @@ teamLogos.COL = (
 
 teamLogos.DAL = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-25-light"
@@ -609,6 +647,8 @@ teamLogos.DAL = (
 
 teamLogos.MIN = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-30-light"
@@ -642,6 +682,8 @@ teamLogos.MIN = (
 
 teamLogos.NSH = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-18-light"
@@ -673,6 +715,8 @@ teamLogos.NSH = (
 
 teamLogos.STL = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-19-light"
@@ -702,6 +746,8 @@ teamLogos.STL = (
 
 teamLogos.WPG = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-52-light"
@@ -739,6 +785,8 @@ teamLogos.WPG = (
 
 teamLogos.ANA = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-24-light"
@@ -772,6 +820,8 @@ teamLogos.ANA = (
 
 teamLogos.ARI = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-53-light"
@@ -805,6 +855,8 @@ teamLogos.ARI = (
 
 teamLogos.CGY = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-20-light"
@@ -834,6 +886,8 @@ teamLogos.CGY = (
 
 teamLogos.EDM = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-22-light"
@@ -862,6 +916,8 @@ teamLogos.EDM = (
 
 teamLogos.LAK = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-26-light"
@@ -908,6 +964,8 @@ teamLogos.LAK = (
 
 teamLogos.SJS = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-28-light"
@@ -956,6 +1014,8 @@ teamLogos.SJS = (
 
 teamLogos.VAN = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-23-light"
@@ -982,6 +1042,8 @@ teamLogos.VAN = (
 
 teamLogos.VGK = (
   <svg
+    height="150"
+    width="150"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 960 640"
     id="team-54-light"

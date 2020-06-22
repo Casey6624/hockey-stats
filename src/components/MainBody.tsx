@@ -1,7 +1,5 @@
 import React, { useEffect, useState, ReactNode } from "react";
 import styled, { keyframes } from "styled-components";
-// Hooks
-import TEAM_LOGOS from "../svg/TEAM_LOGOS";
 
 const fadeIn = keyframes`
 from {
@@ -46,7 +44,6 @@ const MainBody: React.FC<Props> = ({
       teamColour={teamColour}
     >
       {children}
-      {TEAM_LOGOS.CAR}
     </MainBodyContainer>
   );
 };
