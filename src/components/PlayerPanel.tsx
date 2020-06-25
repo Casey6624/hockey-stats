@@ -20,7 +20,7 @@ const ViewAllPlayers = styled.button`
   padding: 2rem;
   border: none;
 
-  &::hover {
+  &:hover {
     cursor: pointer;
   }
 `;
