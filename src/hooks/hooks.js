@@ -21,7 +21,7 @@ export function useTeamColour(imgFile = "NJD.jpg") {
   const RED_COLOUR = "#a6192e";
   const YELLOW_COLOUR = "#FFB915";
   const GREEN_COLOUR = "#006847";
-  const BLACKW_COLOUR = "black";
+  const BLACKW_COLOUR = "darkgrey";
   const ORANGE_COLOUR = "#fa4616";
   const TEAL_COLOUR = "#006D75";
   const BLUE_COLOUR = "#0038A8";
@@ -85,11 +85,10 @@ export function useTeamColour(imgFile = "NJD.jpg") {
   return foundColour(teamsDividedByColour);
 }
 
-export const useHttp = (url, dependencies) => {
+export const useHttp = (url, dependencies = []) => {
   const [isLoading, setIsLoading] = useState(false);
   const [fetchedData, setFetchedData] = useState(null);
 
-  //   fetch('https://swapi.co/api/people')
   useEffect(() => {
     setIsLoading(true);
     console.log("Sending Http request to URL: " + url);
@@ -108,7 +107,7 @@ export const useHttp = (url, dependencies) => {
         console.log(err);
         setIsLoading(false);
       });
-  }, dependencies);
+  }, dependencies || []);
 
   return [isLoading, fetchedData];
 };

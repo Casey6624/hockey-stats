@@ -37,8 +37,7 @@ const PlayerStats: React.FC<Props> = ({
     );
   }
 
-  let stats = playerData.stats[0].splits[0].stat || null;
-  console.log(stats);
+  let stats = playerData.stats[0].splits[0].stat;
   // GOALIE STATS
   if (playerData && playerType.toUpperCase() === "G") {
     return (

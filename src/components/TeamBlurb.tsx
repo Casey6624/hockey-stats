@@ -77,7 +77,11 @@ const TeamBlurb: React.FC<Props> = ({ team, teamColour }) => {
         </LeftSidePanel>
         <RightSidePanel>
           {!isLoading && data && (
-            <PlayerPanel rosterPlayers={data} teamColour={teamColour} />
+            <PlayerPanel
+              rosterPlayers={data}
+              teamColour={teamColour}
+              teamAbbr={team.abbreviation}
+            />
           )}
         </RightSidePanel>
       </BlurbContainer>

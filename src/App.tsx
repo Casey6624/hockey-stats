@@ -11,7 +11,7 @@ import SidebarMenu from "./components/SideBarMenu";
 import MainBody from "./components/MainBody";
 import TeamHeader from "./components/TeamHeader";
 import TeamBlurb from "./components/TeamBlurb";
-import StatsPage from "./components/FullStats";
+import FullStats from "./components/FullStats";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -31,6 +31,7 @@ const App: React.FC = () => {
   const filteredTeam = useFilteredTeam(selectedTeam);
   let colour = useTeamColour(filteredTeam[0].abbreviation);
 
+  if (!filteredTeam) return <div>Loading...</div>;
   return (
     <Router>
       <AppContainer>
@@ -44,15 +45,19 @@ const App: React.FC = () => {
           <Switch>
             <Route path="/stats">
               <MainBody
-                teamAbbreivation={filteredTeam[0].abbreviation}
+                teamAbbreviation={filteredTeam[0].abbreviation}
                 teamColour={colour}
               >
-                <StatsPage />
+                <FullStats
+                  teamColour={colour}
+                  teamName={filteredTeam[0].name}
+                  teamAbbreviation={filteredTeam[0].abbreviation}
+                />
               </MainBody>
             </Route>
             <Route path="/">
               <MainBody
-                teamAbbreivation={filteredTeam[0].abbreviation}
+                teamAbbreviation={filteredTeam[0].abbreviation}
                 teamColour={colour}
               >
                 <TeamHeader team={filteredTeam[0]} teamColour={colour} />

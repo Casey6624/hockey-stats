@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import PlayerCard, { Player } from "./PlayerCard";
+import { Link } from "react-router-dom";
 
 interface Props {
   rosterPlayers?: any;
   teamColour: string;
+  teamAbbr: string;
 }
 
 const PlayerPanelContainer = styled.div`
@@ -25,7 +27,11 @@ const ViewAllPlayers = styled.button`
   }
 `;
 
-const PlayerPanel: React.FC<Props> = ({ rosterPlayers, teamColour }) => {
+const PlayerPanel: React.FC<Props> = ({
+  rosterPlayers,
+  teamColour,
+  teamAbbr,
+}) => {
   if (!rosterPlayers) {
     return <div>Loading...</div>;
   }
@@ -38,7 +44,9 @@ const PlayerPanel: React.FC<Props> = ({ rosterPlayers, teamColour }) => {
           <PlayerCard player={player} teamColour={teamColour} />
         ))}
       </PlayerPanelContainer>
-      <ViewAllPlayers>View All Players & Stats</ViewAllPlayers>
+      <Link to={`/stats?team=${teamAbbr}`}>
+        <ViewAllPlayers>View All Players & Stats</ViewAllPlayers>
+      </Link>
     </>
   );
 };
