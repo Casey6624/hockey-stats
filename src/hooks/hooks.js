@@ -119,3 +119,15 @@ export function usePlayerImage(playerId) {
   }
   return `https://nhl.bamcontent.com/images/headshots/current/168x168/${playerId}.jpg`;
 }
+
+export function usePlayerStats(playerId, years = "20192020") {
+  const [
+    isLoading,
+    data,
+  ] = useHttp(
+    `https://statsapi.web.nhl.com/api/v1/people/${playerId}/stats?stats=statsSingleSeason&season=${years}`,
+    [playerId, years]
+  );
+
+  return [isLoading, data];
+}

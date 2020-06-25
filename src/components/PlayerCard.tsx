@@ -3,7 +3,9 @@ import styled from "styled-components";
 // styles
 import { SideBySideFlex } from "../styling/common";
 // hooks
-import { usePlayerImage } from "../hooks/hooks";
+import { usePlayerImage, usePlayerStats } from "../hooks/hooks";
+// components
+import PlayerStats from "../components/PlayerStats";
 
 export interface Player {
   jerseyNumber: Number;
@@ -79,7 +81,7 @@ const PlayerName = styled.h3`
   font-size: 2rem;
 `;
 
-const HeightAndWeight = styled.p`
+const JerseyNumber = styled.p`
   font-family: "Josefin Slab", serif;
   color: #f2f2f2;
   font-size: 1rem;
@@ -87,7 +89,7 @@ const HeightAndWeight = styled.p`
 
 const PlayerCard: React.FC<Props> = ({ player, teamColour }) => {
   const image = usePlayerImage(player.person.id);
-  console.log(image);
+  const [isLoading, data] = usePlayerStats(player.person.id);
   if (!player) {
     return <div>Loading...</div>;
   }
@@ -100,7 +102,14 @@ const PlayerCard: React.FC<Props> = ({ player, teamColour }) => {
       </SideBySideFlex>
       <PlayerImage src={`${image}`} />
       <PlayerName> {player.person.fullName} </PlayerName>
-      <HeightAndWeight># {player.jerseyNumber}</HeightAndWeight>
+      <JerseyNumber># {player.jerseyNumber}</JerseyNumber>
+      {!isLoading && (
+        <PlayerStats
+          teamColour={teamColour}
+          playerData={data}
+          playerType={player.position.code}
+        />
+      )}
     </CardContainer>
   );
 };

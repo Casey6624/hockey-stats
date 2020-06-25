@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-// styling
-import { SideBySideFlex } from "../styling/common";
+// hooks
 import { useHttp } from "../hooks/hooks";
 import PlayerPanel from "./PlayerPanel";
 
@@ -31,8 +30,11 @@ const LeftSidePanel = styled.div<LeftPanelProps>`
 
 const RightSidePanel = styled.div``;
 
-const TeamDivision = styled.h3`
+const TeamDivAndVenue = styled.h3`
   font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const TeamConference = styled.h3`
@@ -44,10 +46,6 @@ const TeamConference = styled.h3`
   width: fit-content;
   background: #121212;
   color: #f2f2f2;
-`;
-
-const TeamVenue = styled.h2`
-  font-size: 2rem;
 `;
 
 const TeamBlurb: React.FC<Props> = ({ team, teamColour }) => {
@@ -63,19 +61,19 @@ const TeamBlurb: React.FC<Props> = ({ team, teamColour }) => {
       <BlurbContainer>
         <LeftSidePanel teamColour={teamColour}>
           <TeamConference> {team.conference.name} Conference </TeamConference>
-          <TeamDivision>
+          <TeamDivAndVenue>
             <span role="img" aria-label="Stadium Image">
               🏒
             </span>
             {team.division.name} Division
-          </TeamDivision>
+          </TeamDivAndVenue>
 
-          <TeamVenue>
+          <TeamDivAndVenue>
             <span role="img" aria-label="Stadium Image">
               🏟️
             </span>
             {team.venue.name}
-          </TeamVenue>
+          </TeamDivAndVenue>
         </LeftSidePanel>
         <RightSidePanel>
           {!isLoading && data && (
