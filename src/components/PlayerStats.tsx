@@ -28,7 +28,16 @@ const PlayerStats: React.FC<Props> = ({
 }) => {
   if (!playerData) return <div>Loading...</div>;
 
-  let stats = playerData.stats[0].splits[0].stat;
+  if (playerData.stats[0].splits.length === 0) {
+    return (
+      <StatsWrapper>
+        <StatsHeader teamColour={teamColour}>Player Stats</StatsHeader>
+        <StatItem> No Season Data For This Player</StatItem>
+      </StatsWrapper>
+    );
+  }
+
+  let stats = playerData.stats[0].splits[0].stat || null;
   console.log(stats);
   // GOALIE STATS
   if (playerData && playerType.toUpperCase() === "G") {

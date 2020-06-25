@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import TeamLogos from "../svg/TEAM_LOGOS";
+// libraries
+import { Link } from "react-router-dom";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -93,14 +95,16 @@ const SideBarMenu: React.FC<Props> = ({
       </ChooseTeam>
       <TeamList>
         {teams.map(({ id, name }) => (
-          <TeamItem
-            key={id}
-            onClick={() => setSelectedTeam(id)}
-            teamColour={teamColour}
-            isSelected={selectedTeam === id ? true : false}
-          >
-            <p>{name}</p>
-          </TeamItem>
+          <Link to="/">
+            <TeamItem
+              key={id}
+              onClick={() => setSelectedTeam(id)}
+              teamColour={teamColour}
+              isSelected={selectedTeam === id ? true : false}
+            >
+              <p>{name}</p>
+            </TeamItem>
+          </Link>
         ))}
       </TeamList>
     </AppContainer>

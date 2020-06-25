@@ -1,5 +1,8 @@
+// libraries
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// data - just about teams, player data is dynamically pulled in the hooks
 import { teams } from "./data/teams.json";
 // helpeers
 import { useFilteredTeam, useTeamColour } from "./hooks/hooks";
@@ -8,6 +11,7 @@ import SidebarMenu from "./components/SideBarMenu";
 import MainBody from "./components/MainBody";
 import TeamHeader from "./components/TeamHeader";
 import TeamBlurb from "./components/TeamBlurb";
+import StatsPage from "./components/FullStats";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -28,23 +32,37 @@ const App: React.FC = () => {
   let colour = useTeamColour(filteredTeam[0].abbreviation);
 
   return (
-    <AppContainer>
-      <FlexWrapper>
-        <SidebarMenu
-          teams={teams}
-          setSelectedTeam={setSelectedTeam}
-          teamColour={colour}
-          selectedTeam={selectedTeam}
-        />
-        <MainBody
-          teamAbbreivation={filteredTeam[0].abbreviation}
-          teamColour={colour}
-        >
-          <TeamHeader team={filteredTeam[0]} teamColour={colour} />
-          <TeamBlurb team={filteredTeam[0]} teamColour={colour} />
-        </MainBody>
-      </FlexWrapper>
-    </AppContainer>
+    <Router>
+      <AppContainer>
+        <FlexWrapper>
+          <SidebarMenu
+            teams={teams}
+            setSelectedTeam={setSelectedTeam}
+            teamColour={colour}
+            selectedTeam={selectedTeam}
+          />
+          <Switch>
+            <Route path="/stats">
+              <MainBody
+                teamAbbreivation={filteredTeam[0].abbreviation}
+                teamColour={colour}
+              >
+                <StatsPage />
+              </MainBody>
+            </Route>
+            <Route path="/">
+              <MainBody
+                teamAbbreivation={filteredTeam[0].abbreviation}
+                teamColour={colour}
+              >
+                <TeamHeader team={filteredTeam[0]} teamColour={colour} />
+                <TeamBlurb team={filteredTeam[0]} teamColour={colour} />
+              </MainBody>
+            </Route>
+          </Switch>
+        </FlexWrapper>
+      </AppContainer>
+    </Router>
   );
 };
 
