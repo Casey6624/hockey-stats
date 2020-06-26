@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import PlayerCard, { Player } from "./PlayerCard";
 import TeamHeader from "../components/TeamHeader";
 

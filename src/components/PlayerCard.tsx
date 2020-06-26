@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 // styles
 import { SideBySideFlex } from "../styling/common";
 // hooks
@@ -31,6 +31,23 @@ interface Props {
   teamColour: string;
 }
 
+const swingIn = keyframes`
+  0% {
+    -webkit-transform: rotateX(-100deg);
+            transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    opacity: 1;
+  }
+`;
+
 const CardContainer = styled.div`
   background: #121212;
   padding: 0 0.5rem 0 0.5rem;
@@ -38,6 +55,7 @@ const CardContainer = styled.div`
   z-index: 10;
   flex: 1 1 0px;
   flex-basis: 0;
+  animation: ${swingIn} 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 `;
 
 const PlayerImage = styled.img`

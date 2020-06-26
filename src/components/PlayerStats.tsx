@@ -15,10 +15,12 @@ const StatsWrapper = styled.div``;
 
 const StatsHeader = styled.h3<TeamColour>`
   color: ${(props) => props.teamColour};
+  font-family: "Staatliches", cursive;
 `;
 
 const StatItem = styled.h3`
   color: #f2f2f2;
+  font-family: "Staatliches", cursive;
 `;
 
 const PlayerStats: React.FC<Props> = ({
