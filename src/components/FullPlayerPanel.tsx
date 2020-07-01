@@ -13,7 +13,19 @@ interface Props {
 const PlayerPanelContainer = styled.div`
   display: grid;
   padding: 1rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @media(max-width: 900px){
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media(max-width: 750px){
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media(max-width: 550px){
+    grid-template-columns: 1fr;
+  }
 `;
 
 const FullPlayerPanel: React.FC<Props> = ({

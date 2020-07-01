@@ -1,7 +1,7 @@
 // libraries
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // data - just about teams, player data is dynamically pulled in the hooks
 import { teams } from "./data/teams.json";
 // helpeers
