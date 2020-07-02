@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 // styles
 import { SideBySideFlex } from "../styling/common";
@@ -6,6 +6,8 @@ import { SideBySideFlex } from "../styling/common";
 import { usePlayerImage, usePlayerStats } from "../hooks/hooks";
 // components
 import PlayerStats from "../components/PlayerStats";
+import Modal from "./Modal"
+import FullStatsPanel from "./FullStatsPanel"
 
 export interface Player {
   jerseyNumber: Number;
@@ -48,6 +50,7 @@ const swingIn = keyframes`
   }
 `;
 
+
 const CardContainer = styled.div`
   background: #121212;
   padding: 0 0.5rem 0 0.5rem;
@@ -56,6 +59,10 @@ const CardContainer = styled.div`
   flex: 1 1 0px;
   flex-basis: 0;
   animation: ${swingIn} 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+
+  &:hover{
+    cursor: pointer;
+  }
 `;
 
 const PlayerImage = styled.img`
@@ -108,11 +115,17 @@ const JerseyNumber = styled.p`
 const PlayerCard: React.FC<Props> = ({ player, teamColour }) => {
   const image = usePlayerImage(player.person.id);
   const [isLoading, data] = usePlayerStats(player.person.id);
+  const [isActive, setIsActive] = useState(false)
+
   if (!player) {
     return <div>Loading...</div>;
   }
   return (
-    <CardContainer>
+<>
+ {isActive && <Modal setIsActive={setIsActive}>
+  <FullStatsPanel player={player}/>
+</Modal>}
+    <CardContainer onClick={() => setIsActive(true)}>
       <CardHeader teamColour={teamColour} />
       <SideBySideFlex>
         <Position teamColour={teamColour}>{player.position.code}</Position>
@@ -129,6 +142,7 @@ const PlayerCard: React.FC<Props> = ({ player, teamColour }) => {
         />
       )}
     </CardContainer>
+</>
   );
 };
 

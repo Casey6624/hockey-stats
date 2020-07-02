@@ -70,7 +70,7 @@ const TeamConference = styled.h3`
 const TeamBlurb: React.FC<Props> = ({ team, teamColour }) => {
   const [isLoading, data] = useHttp(
     `https://statsapi.web.nhl.com/api/v1/teams/${team.id}/roster`,
-    team.id
+    team
   );
 
   if (!team || !teamColour) return <div>Loading...</div>;
