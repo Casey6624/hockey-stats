@@ -30,7 +30,7 @@ const ViewAllPlayers = styled.button`
 const PlayerPanel: React.FC<Props> = ({
   rosterPlayers,
   teamColour,
-  teamAbbr,
+  teamAbbr = "",
 }) => {
   if (!rosterPlayers) {
     return <div>Loading...</div>;
@@ -45,7 +45,7 @@ const PlayerPanel: React.FC<Props> = ({
         ))}
       </PlayerPanelContainer>
       <Link to={`/stats?team=${teamAbbr}`}>
-        <ViewAllPlayers>View All Players & Stats</ViewAllPlayers>
+        <ViewAllPlayers>View All {teamAbbr} Players & Stats</ViewAllPlayers>
       </Link>
     </>
   );

@@ -17,7 +17,7 @@ export function useFilteredTeam(selectedTeamId = 1) {
 
   return foundTeam;
 }
-export function useTeamColour(imgFile = "NJD.jpg") {
+export function useTeamColour(imgFile = "NJD") {
   const RED_COLOUR = "#a6192e";
   const YELLOW_COLOUR = "#FFB915";
   const GREEN_COLOUR = "#006847";
@@ -114,7 +114,7 @@ export const useHttp = (url, dependencies = []) => {
 
 export function usePlayerImage(playerId) {
   if (!playerId) {
-    return "https://i.pinimg.com/originals/b1/d5/d0/b1d5d0d24e7d5a9088c4838fd762eb60.jpg";
+    return `${process.env.PUBLIC_URL}/img/playerPlaceholder.jpg`;
   }
   return `https://nhl.bamcontent.com/images/headshots/current/168x168/${playerId}.jpg`;
 }

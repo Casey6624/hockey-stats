@@ -118,7 +118,7 @@ const PlayerCard: React.FC<Props> = ({ player, teamColour }) => {
         <Position teamColour={teamColour}>{player.position.code}</Position>
         <PositionType>{player.position.type}</PositionType>
       </SideBySideFlex>
-      <PlayerImage src={`${image}`} />
+      <PlayerImage src={image} defaultValue={`${process.env.PUBLIC_URL}/img/playerPlaceholder.jpg`}/>
       <PlayerName> {player.person.fullName} </PlayerName>
       <JerseyNumber># {player.jerseyNumber}</JerseyNumber>
       {!isLoading && (
