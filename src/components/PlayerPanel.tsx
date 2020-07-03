@@ -41,7 +41,7 @@ const PlayerPanel: React.FC<Props> = ({
     <>
       <PlayerPanelContainer>
         {filteredPlayers.map((player: Player) => (
-          <PlayerCard player={player} teamColour={teamColour} />
+          <PlayerCard key={`${player.person.id}`} player={player} teamColour={teamColour} />
         ))}
       </PlayerPanelContainer>
       <Link to={`/stats?team=${teamAbbr}`}>
