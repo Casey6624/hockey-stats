@@ -43,26 +43,32 @@ const Modal: React.FC<Props> = ({ children, setIsActive }) => {
             /**
              * Alert if clicked on outside of element
              */
-            function handleClickOutside(event: any) {
-                console.log(event.target)
+            function handleClickOutside(event: any) { 
                 if (ref.current && !ref.current.contains(event.target)) {
-                    //setIsActive(false) 
-                    window.alert("outside")
+                    setIsActive(false) 
+                }
+            }
+
+            function handleKeyPressOutside(event: any) { 
+                if(event.key === "Escape"){
+                    setIsActive(false)
                 }
             }
     
             // Bind the event listener
             document.addEventListener("mousedown", handleClickOutside);
+            document.addEventListener("keydown", handleKeyPressOutside);
             return () => {
                 // Unbind the event listener on clean up
                 document.removeEventListener("mousedown", handleClickOutside);
+                document.removeEventListener("keydown", handleKeyPressOutside);
                 setIsActive(false)
             };
         }, [ref]);
     }
 
-    return(<ModalContainer ref={modalRef}>
-        <ContentContainer>
+    return(<ModalContainer>
+        <ContentContainer ref={modalRef}>
             {children} 
         </ContentContainer>   
     </ModalContainer>)
