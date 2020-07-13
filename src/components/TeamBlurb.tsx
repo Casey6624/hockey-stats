@@ -18,7 +18,7 @@ const BlurbContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   font-family: "Staatliches", cursive;
-  @media(max-width: 1450px){
+  @media (max-width: 1450px) {
     display: inline;
   }
 `;
@@ -30,7 +30,7 @@ const LeftSidePanel = styled.div<LeftPanelProps>`
   border-radius: 0 12px 12px 0;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
-    @media(max-width: 1450px){
+  @media (max-width: 1450px) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -46,7 +46,7 @@ const TeamDivAndVenue = styled.h3`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media(max-width: 1160px){
+  @media (max-width: 1160px) {
     font-size: 1.5rem;
     padding: 0.8rem;
   }
@@ -61,7 +61,7 @@ const TeamConference = styled.h3`
   width: fit-content;
   background: #121212;
   color: #f2f2f2;
-  @media(max-width: 1160px){
+  @media (max-width: 1160px) {
     font-size: 1.5rem;
     padding: 0.8rem;
   }

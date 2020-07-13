@@ -11,6 +11,16 @@ interface Props {
 
 const PlayerPanelContainer = styled.div`
   display: flex;
+
+  @media (max-width: 1450px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 535px) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ViewAllPlayers = styled.button`
@@ -41,7 +51,11 @@ const PlayerPanel: React.FC<Props> = ({
     <>
       <PlayerPanelContainer>
         {filteredPlayers.map((player: Player) => (
-          <PlayerCard key={`${player.person.id}`} player={player} teamColour={teamColour} />
+          <PlayerCard
+            key={`${player.person.id}`}
+            player={player}
+            teamColour={teamColour}
+          />
         ))}
       </PlayerPanelContainer>
       <Link to={`/stats?team=${teamAbbr}`}>
