@@ -14,13 +14,11 @@ interface LeftPanelProps {
 }
 
 const BlurbContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-gap: 0 20px;
   align-items: flex-start;
   font-family: "Staatliches", cursive;
-  @media (max-width: 1450px) {
-    display: inline;
-  }
 `;
 
 const LeftSidePanel = styled.div<LeftPanelProps>`

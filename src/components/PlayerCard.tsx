@@ -6,8 +6,8 @@ import { SideBySideFlex } from "../styling/common";
 import { usePlayerImage, usePlayerStats } from "../hooks/hooks";
 // components
 import PlayerStats from "../components/PlayerStats";
-import Modal from "./Modal"
-import FullStatsPanel from "./FullStatsPanel"
+import Modal from "./Modal";
+import FullStatsPanel from "./FullStatsPanel";
 
 export interface Player {
   jerseyNumber: Number;
@@ -50,7 +50,6 @@ const swingIn = keyframes`
   }
 `;
 
-
 const CardContainer = styled.div`
   background: #121212;
   padding: 0 0.5rem 0 0.5rem;
@@ -60,7 +59,7 @@ const CardContainer = styled.div`
   flex-basis: 0;
   animation: ${swingIn} 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 `;
@@ -115,34 +114,41 @@ const JerseyNumber = styled.p`
 const PlayerCard: React.FC<Props> = ({ player, teamColour }) => {
   const image = usePlayerImage(player.person.id);
   const [isLoading, data] = usePlayerStats(player.person.id);
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState(false);
 
   if (!player) {
     return <div>Loading...</div>;
   }
   return (
-<>
- {isActive && <Modal setIsActive={setIsActive}>
-  <FullStatsPanel player={player}/>
-</Modal>}
-    <CardContainer onClick={() => setIsActive(true)}>
-      <CardHeader teamColour={teamColour} />
-      <SideBySideFlex>
-        <Position teamColour={teamColour}>{player.position.code}</Position>
-        <PositionType>{player.position.type}</PositionType>
-      </SideBySideFlex>
-      <PlayerImage src={image} defaultValue={`${process.env.PUBLIC_URL}/img/playerPlaceholder.jpg`}/>
-      <PlayerName> {player.person.fullName} </PlayerName>
-      <JerseyNumber># {player.jerseyNumber}</JerseyNumber>
-      {!isLoading && (
-        <PlayerStats
-          teamColour={teamColour}
-          playerData={data}
-          playerType={player.position.code}
-        />
+    <>
+      {isActive && (
+        <Modal setIsActive={setIsActive}>
+          <FullStatsPanel player={player} />
+        </Modal>
       )}
-    </CardContainer>
-</>
+      <CardContainer onClick={() => setIsActive(true)}>
+        <CardHeader teamColour={teamColour} />
+        <SideBySideFlex>
+          <Position teamColour={teamColour}>
+            {player.position.code.toLowerCase() === ""}
+          </Position>
+          <PositionType>{player.position.type}</PositionType>
+        </SideBySideFlex>
+        <PlayerImage
+          src={image}
+          defaultValue={`${process.env.PUBLIC_URL}/img/playerPlaceholder.jpg`}
+        />
+        <PlayerName> {player.person.fullName} </PlayerName>
+        <JerseyNumber># {player.jerseyNumber}</JerseyNumber>
+        {!isLoading && (
+          <PlayerStats
+            teamColour={teamColour}
+            playerData={data}
+            playerType={player.position.code}
+          />
+        )}
+      </CardContainer>
+    </>
   );
 };
 

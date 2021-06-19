@@ -22,8 +22,8 @@ const AppContainer = styled.div`
 `;
 
 const FlexWrapper = styled.div`
-  display: flex;
-  flex: 1;
+  display: grid;
+  grid-template-columns: 190px 1fr;
 `;
 
 const App: React.FC = () => {
@@ -43,7 +43,7 @@ const App: React.FC = () => {
             selectedTeam={selectedTeam}
           />
           <Switch>
-            <Route path="/stats">
+            <Route path="/stats/:team">
               <MainBody
                 teamAbbreviation={filteredTeam[0].abbreviation}
                 teamColour={colour}

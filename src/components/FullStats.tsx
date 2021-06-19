@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 // helpers
 import { findTeamIdByName } from "../helpers/helpers.js";
 // hooks
@@ -14,10 +14,6 @@ interface Props {
   teamAbbreviation: string;
 }
 
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
-
 const PlayerPanelContainer = styled.div`
   display: flex;
 `;
@@ -27,17 +23,15 @@ const FullStats: React.FC<Props> = ({
   teamName,
   teamAbbreviation,
 }) => {
-  let query = useQuery().get("team");
-  const [
-    isLoading,
-    data,
-  ] = useHttp(
+  const { team } = useParams<{ team: string }>();
+  const [isLoading, data] = useHttp(
     `https://statsapi.web.nhl.com/api/v1/teams/${
-      findTeamIdByName(query)[0].id
+      findTeamIdByName(team.toUpperCase())[0].id
     }/roster`,
-    [query]
+    [team]
   );
-  if (!data) return <div>Loading...</div>;
+
+  if (!data || isLoading) return <div>Loading...</div>;
 
   return (
     <PlayerPanelContainer>

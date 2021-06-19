@@ -23,10 +23,8 @@ const MainBodyContainer = styled.div`
   animation: ${fadeIn} 0.5s ease-in-out 0s forwards 1;
   background-color: ${(props) => props.teamColour};
   background-blend-mode: luminosity;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3),
-                       rgba(0, 0, 0, 0.5)), url("${
-                         process.env.PUBLIC_URL
-                       }/img/${(p: Props) => p.teamAbbreviation}.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    url("/img/${(p: Props) => p.teamAbbreviation}.jpg");
 `;
 interface Props {
   children: {

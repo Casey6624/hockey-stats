@@ -51,6 +51,7 @@ const TeamList = styled.ul`
   width: 100%;
   margin: 0;
   padding: 0;
+  list-style: none;
 `;
 
 const TeamItem = styled.li<ITeamItem>`
@@ -95,16 +96,14 @@ const SideBarMenu: React.FC<Props> = ({
       </ChooseTeam>
       <TeamList>
         {teams.map(({ id, name }) => (
-          <Link to="/">
-            <TeamItem
-              key={id}
-              onClick={() => setSelectedTeam(id)}
-              teamColour={teamColour}
-              isSelected={selectedTeam === id ? true : false}
-            >
-              <p>{name}</p>
-            </TeamItem>
-          </Link>
+          <TeamItem
+            key={id}
+            onClick={() => setSelectedTeam(id)}
+            teamColour={teamColour}
+            isSelected={selectedTeam === id ? true : false}
+          >
+            <p>{name}</p>
+          </TeamItem>
         ))}
       </TeamList>
     </AppContainer>

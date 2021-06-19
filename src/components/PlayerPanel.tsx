@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import PlayerCard, { Player } from "./PlayerCard";
 import { Link } from "react-router-dom";
@@ -10,17 +10,8 @@ interface Props {
 }
 
 const PlayerPanelContainer = styled.div`
-  display: flex;
-
-  @media (max-width: 1450px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (max-width: 535px) {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 `;
 
 const ViewAllPlayers = styled.button`
@@ -42,11 +33,15 @@ const PlayerPanel: React.FC<Props> = ({
   teamColour,
   teamAbbr = "",
 }) => {
+  const filteredPlayers = useMemo(() => {
+    if (!rosterPlayers) return null;
+    return rosterPlayers.roster.slice(0, 3);
+  }, [rosterPlayers]);
+
   if (!rosterPlayers) {
     return <div>Loading...</div>;
   }
 
-  let filteredPlayers = rosterPlayers.roster.slice(0, 3);
   return (
     <>
       <PlayerPanelContainer>
@@ -58,7 +53,7 @@ const PlayerPanel: React.FC<Props> = ({
           />
         ))}
       </PlayerPanelContainer>
-      <Link to={`/stats?team=${teamAbbr}`}>
+      <Link to={`/stats/${teamAbbr}`}>
         <ViewAllPlayers>View All {teamAbbr} Players & Stats</ViewAllPlayers>
       </Link>
     </>
